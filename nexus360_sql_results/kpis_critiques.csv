@@ -1,0 +1,11 @@
+kpi_name,bu_id,kpi_category,target_value,alert_threshold,unit,direction,perf_score_moyen
+Coût par séjour,BU003,Finance,3500.0,5000.0,€,lower_is_better,39.2
+Taux d'occupation,BU003,Capacité,85.0,70.0,%,higher_is_better,39.2
+Durée Moyenne de Séjour (DMS),BU003,Efficacité,4.5,7.0,jours,lower_is_better,39.3
+Satisfaction patient (NPS),BU003,Qualité,72.0,50.0,score,higher_is_better,39.8
+Taux de réadmission à 30j,BU003,Qualité,8.0,15.0,%,lower_is_better,39.9
+Délai prise en charge urgences,BU003,Qualité,25.0,45.0,minutes,lower_is_better,41.0
+Coût par intervention,BU001,Finance,8000.0,12000.0,€,lower_is_better,47.8
+Taux de conformité réglementaire,BU001,Conformité,99.5,98.0,%,higher_is_better,48.1
+Disponibilité flotte,BU001,Performance,98.0,95.0,%,higher_is_better,48.3
+Taux de panne critique,BU001,Sécurité,0.5,2.0,%,lower_is_better,48.5

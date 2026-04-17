@@ -1,0 +1,19 @@
+kpi_id,bu_id,kpi_name,kpi_category,unit,target_value,alert_threshold,direction
+KPI001,BU001,MTBF (Mean Time Between Failures),Fiabilité,heures,2000.0,1500.0,higher_is_better
+KPI002,BU001,Disponibilité flotte,Performance,%,98.0,95.0,higher_is_better
+KPI003,BU001,Coût par intervention,Finance,€,8000.0,12000.0,lower_is_better
+KPI004,BU001,Turn Around Time (TAT),Délai,jours,5.0,10.0,lower_is_better
+KPI005,BU001,Taux de panne critique,Sécurité,%,0.5,2.0,lower_is_better
+KPI006,BU001,Taux de conformité réglementaire,Conformité,%,99.5,98.0,higher_is_better
+KPI007,BU002,VaR 95% (Value at Risk),Risque marché,M€,50.0,80.0,lower_is_better
+KPI008,BU002,NPL Ratio (Non-Performing Loans),Risque crédit,%,2.5,5.0,lower_is_better
+KPI009,BU002,Capital Adequacy Ratio (CAR),Solvabilité,%,15.0,12.0,higher_is_better
+KPI010,BU002,Net Interest Margin (NIM),Rentabilité,%,3.2,2.0,higher_is_better
+KPI011,BU002,Taux de défaut,Risque crédit,%,1.5,3.5,lower_is_better
+KPI012,BU002,Return on Equity (ROE),Rentabilité,%,12.0,8.0,higher_is_better
+KPI013,BU003,Taux d'occupation,Capacité,%,85.0,70.0,higher_is_better
+KPI014,BU003,Durée Moyenne de Séjour (DMS),Efficacité,jours,4.5,7.0,lower_is_better
+KPI015,BU003,Coût par séjour,Finance,€,3500.0,5000.0,lower_is_better
+KPI016,BU003,Taux de réadmission à 30j,Qualité,%,8.0,15.0,lower_is_better
+KPI017,BU003,Délai prise en charge urgences,Qualité,minutes,25.0,45.0,lower_is_better
+KPI018,BU003,Satisfaction patient (NPS),Qualité,score,72.0,50.0,higher_is_better

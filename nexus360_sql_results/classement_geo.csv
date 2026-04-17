@@ -1,0 +1,16 @@
+city,country,bu_name,total_revenue,nb_operations
+La Défense,France,FinServ Risk,450066228.33,1950
+Genève,Suisse,FinServ Risk,247399456.87,1038
+Bruxelles,Belgique,FinServ Risk,230947813.84,998
+Amsterdam,Pays-Bas,FinServ Risk,222004672.38,947
+Luxembourg,Luxembourg,FinServ Risk,220681361.99,939
+Paris,France,AeroMRO,182924412.86,1795
+Toulouse,France,AeroMRO,168149528.32,1652
+Paris,France,MedOps,97294706.39,1925
+Barcelone,Espagne,AeroMRO,86465205.75,854
+Londres,Royaume-Uni,AeroMRO,85659674.52,841
+Munich,Allemagne,AeroMRO,85548880.14,838
+Marseille,France,MedOps,51142381.72,1007
+Lille,France,MedOps,50065942.29,987
+Rennes,France,MedOps,49458317.61,974
+Lyon,France,MedOps,47041776.3,924

@@ -1,0 +1,37 @@
+month,month_label,bu_name,revenue_moyen,nb_operations
+1,Janvier,AeroMRO,99195.05,500
+1,Janvier,FinServ Risk,265327.92,530
+1,Janvier,MedOps,62011.55,489
+2,Février,AeroMRO,89256.35,459
+2,Février,FinServ Risk,252884.22,455
+2,Février,MedOps,59421.82,438
+3,Mars,AeroMRO,94130.66,457
+3,Mars,FinServ Risk,275942.79,495
+3,Mars,MedOps,52969.69,542
+4,Avril,AeroMRO,100861.84,506
+4,Avril,FinServ Risk,215015.34,492
+4,Avril,MedOps,49768.13,463
+5,Mai,AeroMRO,103694.5,461
+5,Mai,FinServ Risk,203269.64,473
+5,Mai,MedOps,44734.38,482
+6,Juin,AeroMRO,111743.89,483
+6,Juin,FinServ Risk,226614.81,485
+6,Juin,MedOps,43528.92,493
+7,Juillet,AeroMRO,119153.66,525
+7,Juillet,FinServ Risk,193509.78,489
+7,Juillet,MedOps,39979.72,511
+8,Août,AeroMRO,112912.68,535
+8,Août,FinServ Risk,182974.75,535
+8,Août,MedOps,37688.49,467
+9,Septembre,AeroMRO,105428.26,533
+9,Septembre,FinServ Risk,220912.66,456
+9,Septembre,MedOps,48419.2,466
+10,Octobre,AeroMRO,93455.41,556
+10,Octobre,FinServ Risk,233895.03,488
+10,Octobre,MedOps,52658.54,494
+11,Novembre,AeroMRO,89210.87,467
+11,Novembre,FinServ Risk,247891.87,503
+11,Novembre,MedOps,55985.61,454
+12,Décembre,AeroMRO,99542.88,498
+12,Décembre,FinServ Risk,286401.56,471
+12,Décembre,MedOps,61495.12,518

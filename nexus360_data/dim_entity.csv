@@ -1,0 +1,20 @@
+entity_id,bu_id,bu_name,entity_name,entity_type,geo_id
+ENT001,BU001,AeroMRO,MRO Paris CDG,Base de maintenance,GEO001
+ENT002,BU001,AeroMRO,MRO Toulouse,Centre d'excellence,GEO002
+ENT003,BU001,AeroMRO,MRO Munich,Base régionale,GEO003
+ENT004,BU001,AeroMRO,MRO Barcelone,Base régionale,GEO004
+ENT005,BU001,AeroMRO,MRO London Heathrow,Base régionale,GEO005
+ENT006,BU001,AeroMRO,Centre Avionique,Spécialiste avionique,GEO002
+ENT007,BU001,AeroMRO,Atelier Moteurs,Révision moteurs,GEO001
+ENT008,BU002,FinServ Risk,Corporate Banking,Banque corporative,GEO006
+ENT009,BU002,FinServ Risk,Retail Banking,Banque de détail,GEO006
+ENT010,BU002,FinServ Risk,Asset Management,Gestion d'actifs,GEO007
+ENT011,BU002,FinServ Risk,Trade Finance,Finance commerciale,GEO008
+ENT012,BU002,FinServ Risk,Risk & Compliance,Gestion des risques,GEO009
+ENT013,BU002,FinServ Risk,Private Equity Desk,Capital investissement,GEO010
+ENT014,BU003,MedOps,Hôpital Paris Nord,Médecine générale,GEO011
+ENT015,BU003,MedOps,Clinique Lyon Sud,Chirurgie,GEO012
+ENT016,BU003,MedOps,Centre Oncologie,Oncologie,GEO011
+ENT017,BU003,MedOps,Polyclinique Marseille,Multi-spécialités,GEO013
+ENT018,BU003,MedOps,Clinique Rennes,Cardiologie,GEO014
+ENT019,BU003,MedOps,Centre Urgences Lille,Urgences 24h,GEO015

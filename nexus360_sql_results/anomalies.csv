@@ -1,0 +1,11 @@
+operation_id,entity_name,bu_name,date,revenue,cost,perf_score,status
+OP0001391,Centre Urgences Lille,MedOps,2021-04-27,54702.07,48321.16,0.0,Terminé
+OP0003521,Centre Oncologie,MedOps,2021-10-20,0.0,0.0,0.0,Terminé
+OP0007008,Risk & Compliance,FinServ Risk,2022-08-06,0.0,0.0,0.0,Terminé
+OP0007112,Retail Banking,FinServ Risk,2022-08-14,0.0,0.0,0.0,Terminé
+OP0007381,Retail Banking,FinServ Risk,2022-09-06,0.0,0.0,0.0,En retard
+OP0007947,Polyclinique Marseille,MedOps,2022-10-23,0.0,0.0,0.0,En cours
+OP0015279,Private Equity Desk,FinServ Risk,2024-06-17,0.0,0.0,0.0,En cours
+OP0016087,Corporate Banking,FinServ Risk,2024-08-23,0.0,0.0,0.0,Terminé
+OP0013574,Hôpital Paris Nord,MedOps,2024-01-26,62294.92,58365.86,1.7,Terminé
+OP0002564,Centre Urgences Lille,MedOps,2021-08-03,0.0,0.0,1.9,Terminé
