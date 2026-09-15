@@ -2,9 +2,18 @@
 import sqlite3
 import pandas as pd
 import os
+import sys
+from pathlib import Path
 
-DATA_DIR = "nexus360_data"
-DB_PATH  = "nexus360.db"
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+DATA_DIR = PROJECT_ROOT / "data" / "generated"
+RESULTS_DIR = PROJECT_ROOT / "data" / "analytics"
+DB_PATH = PROJECT_ROOT / "data" / "database" / "nexus360.db"
+RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+DB_PATH.parent.mkdir(parents=True, exist_ok=True)
 
 print("=" * 55)
 print("  NEXUS 360 — Chargement dans SQLite")
@@ -29,7 +38,7 @@ for table_name, csv_file in tables.items():
     df.to_sql(table_name, conn, if_exists="replace", index=False)
     print(f"   ✓ {table_name:<20} {len(df):>6,} lignes chargées")
 
-print("\n  Base SQLite créée : nexus360.db")
+print(f"\n  Base SQLite créée : {DB_PATH}")
 
 # ─────────────────────────────────────────────
 # 2. REQUÊTES ANALYTIQUES
@@ -178,8 +187,6 @@ print("\n" + "=" * 55)
 print("  EXPORT DES RÉSULTATS")
 print("=" * 55)
 
-os.makedirs("nexus360_sql_results", exist_ok=True)
-
 export = {
     "revenue_by_bu_year":     list(queries.values())[0],
     "top5_entities":          list(queries.values())[1],
@@ -193,10 +200,10 @@ export = {
 
 for name, query in export.items():
     df = pd.read_sql_query(query, conn)
-    df.to_csv(f"nexus360_sql_results/{name}.csv", index=False)
+    df.to_csv(RESULTS_DIR / f"{name}.csv", index=False)
     print(f"   ✓ {name}.csv exporté")
 
 conn.close()
-print("\n  Base SQLite : nexus360.db")
-print("  Résultats   : nexus360_sql_results/")
+print(f"\n  Base SQLite : {DB_PATH}")
+print(f"  Résultats   : {RESULTS_DIR}")
 print("=" * 55)

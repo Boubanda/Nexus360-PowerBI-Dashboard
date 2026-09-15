@@ -10,11 +10,29 @@
 [![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
 [![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)](https://numpy.org/)
 
-**Dashboard décisionnel multi-secteurs couvrant 3 Business Units, 17 669 opérations et 2,27 milliards € de revenue analysés sur 4 ans (2021–2024)**
+**Système décisionnel multi-secteurs : génération Python, couche analytique SQLite et rapport Power BI de 6 pages.**
+
+`2,27 Md€ analysés` · `17 669 opérations` · `3 Business Units` · `15 sites` · `2021–2024`
 
 [📥 Télécharger le rapport](#installation) · [📊 Voir les pages](#pages-du-rapport) · [🗄️ Analyses SQL](#analyses-sql)
 
 </div>
+
+---
+
+## Aperçu du rapport
+
+[![Executive Summary](docs/screenshots/01-executive-summary.png)](docs/screenshots/01-executive-summary.png)
+
+| AeroMRO | FinServ Risk | MedOps |
+|---|---|---|
+| [![AeroMRO](docs/screenshots/02-aeromro-analytics.png)](docs/screenshots/02-aeromro-analytics.png) | [![FinServ](docs/screenshots/03-finserv-risk.png)](docs/screenshots/03-finserv-risk.png) | [![MedOps](docs/screenshots/04-medops-performance.png)](docs/screenshots/04-medops-performance.png) |
+
+| Benchmark inter-BU | Insights |
+|---|---|
+| [![Benchmark](docs/screenshots/05-cross-bu-benchmark.png)](docs/screenshots/05-cross-bu-benchmark.png) | [![Insights](docs/screenshots/06-predictive-insights.png)](docs/screenshots/06-predictive-insights.png) |
+
+> Les données sont entièrement synthétiques et reproductibles avec une graine fixe. Elles ne représentent aucune entreprise réelle.
 
 ---
 
@@ -51,7 +69,7 @@
 │  2,27 Milliards €    │  38,3 %               │  17 669               │
 ├─────────────────────┼──────────────────────┼───────────────────────┤
 │  Période analysée    │  Sites géographiques  │  KPIs métier définis  │
-│  2021 → 2024         │  15 villes (9 pays)   │  18 KPIs              │
+│  2021 → 2024         │  15 sites (8 pays)    │  18 KPIs              │
 └─────────────────────┴──────────────────────┴───────────────────────┘
 ```
 
@@ -277,7 +295,10 @@ MedOps       ████████              25% marge  — Croissance la 
 - Bibliothèques : `pandas`, `numpy`
 
 ```bash
-pip install pandas numpy
+python -m venv .venv
+# Windows : .venv\Scripts\activate
+# macOS/Linux : source .venv/bin/activate
+python -m pip install -r requirements.txt
 ```
 
 ### Lancer le projet
@@ -288,13 +309,16 @@ git clone https://github.com/Boubanda/Nexus360-PowerBI-Dashboard.git
 cd Nexus360-PowerBI-Dashboard
 
 # 2. Générer les données synthétiques (5 CSV → nexus360_data/)
-py generate_nexus360.py
+python src/generate_nexus360.py
 
 # 3. Créer la base SQLite et exécuter les analyses
-py nexus360_sqlite.py
+python src/run_analytics.py
 
-# 4. Ouvrir le rapport Power BI
-# → Double-cliquer sur Nexus360.pbix
+# 4. Vérifier automatiquement les volumes et agrégats
+python src/validate_project.py
+
+# 5. Ouvrir le rapport Power BI
+# → Double-cliquer sur powerbi/Nexus360.pbix
 # → Accueil → Actualiser pour recharger les données
 ```
 
@@ -304,34 +328,19 @@ py nexus360_sqlite.py
 
 ```
 Nexus360-PowerBI-Dashboard/
-│
-├── 📄 generate_nexus360.py       # Générateur de données synthétiques
-│                                  # Saisonnalité + tendances YoY réalistes
-│
-├── 📄 nexus360_sqlite.py         # ETL + 8 requêtes analytiques SQL
-│                                  # Export CSV des résultats
-│
-├── 📊 Nexus360.pbix              # Rapport Power BI complet
-│                                  # 6 pages · 12 mesures DAX · modèle étoile
-│
-├── 📁 nexus360_data/             # [généré] 5 fichiers CSV
-│   ├── fact_operations.csv       # 17 669 lignes — table de faits
-│   ├── dim_date.csv              # 1 461 jours — calendrier 2021-2024
-│   ├── dim_entity.csv            # 19 entités — 3 BUs
-│   ├── dim_kpi.csv               # 18 KPIs métier
-│   └── dim_geo.csv               # 15 sites avec coordonnées GPS
-│
-├── 📁 nexus360_sql_results/      # [généré] 8 fichiers résultats SQL
-│   ├── revenue_by_bu_year.csv
-│   ├── top5_entities.csv
-│   ├── marge_by_quarter.csv
-│   ├── anomalies.csv
-│   ├── saisonnalite.csv
-│   ├── kpis_critiques.csv
-│   ├── executive_summary.csv
-│   └── classement_geo.csv
-│
-└── 📄 README.md
+├── src/
+│   ├── generate_nexus360.py      # Génération synthétique reproductible
+│   ├── run_analytics.py          # Chargement SQLite + 8 analyses SQL
+│   └── validate_project.py       # Contrôles automatisés
+├── data/
+│   ├── generated/                # Modèle en étoile, 5 CSV
+│   ├── analytics/                # 8 exports analytiques
+│   └── database/nexus360.db      # Base SQLite
+├── powerbi/Nexus360.pbix         # Rapport Power BI, 6 pages
+├── docs/screenshots/             # Aperçus des 6 pages
+├── .github/workflows/validate.yml
+├── requirements.txt
+└── README.md
 ```
 
 ---
@@ -345,7 +354,7 @@ Nexus360-PowerBI-Dashboard/
 Étudiant Bac+5 — Data Science & Intelligence Artificielle
 Aivancity School for Technology, Business & Society — Paris
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Levi%20Junior%20Boubanda-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/ton-profil)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Levi%20Junior%20Boubanda-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/l%C3%A9vi-junior016/)
 [![GitHub](https://img.shields.io/badge/GitHub-Boubanda-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Boubanda)
 
 *En recherche d'alternance Data Science / Data Analyst — Septembre 2026*

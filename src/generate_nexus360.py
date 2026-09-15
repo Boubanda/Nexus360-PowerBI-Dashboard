@@ -12,13 +12,19 @@ import numpy as np
 from datetime import date, timedelta
 import random
 import os
+import sys
+from pathlib import Path
+
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
 
 # Reproductibilité
 np.random.seed(42)
 random.seed(42)
 
-OUTPUT_DIR = "nexus360_data"
-os.makedirs(OUTPUT_DIR, exist_ok=True)
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+OUTPUT_DIR = PROJECT_ROOT / "data" / "generated"
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 print("=" * 55)
 print("  NEXUS 360 — Génération des données synthétiques")
@@ -66,7 +72,7 @@ dim_date = pd.DataFrame({
                                dates.month + 3),
 })
 
-dim_date.to_csv(f"{OUTPUT_DIR}/dim_date.csv", index=False)
+dim_date.to_csv(OUTPUT_DIR / "dim_date.csv", index=False)
 print(f"   ✓ {len(dim_date):,} lignes — dim_date.csv")
 
 
@@ -101,7 +107,7 @@ dim_geo = pd.DataFrame(geo_data, columns=[
     "latitude","longitude","zone_type"
 ])
 
-dim_geo.to_csv(f"{OUTPUT_DIR}/dim_geo.csv", index=False)
+dim_geo.to_csv(OUTPUT_DIR / "dim_geo.csv", index=False)
 print(f"   ✓ {len(dim_geo):,} lignes — dim_geo.csv")
 
 
@@ -142,7 +148,7 @@ dim_entity = pd.DataFrame(entity_data, columns=[
     "entity_name","entity_type","geo_id"
 ])
 
-dim_entity.to_csv(f"{OUTPUT_DIR}/dim_entity.csv", index=False)
+dim_entity.to_csv(OUTPUT_DIR / "dim_entity.csv", index=False)
 print(f"   ✓ {len(dim_entity):,} lignes — dim_entity.csv")
 
 
@@ -201,7 +207,7 @@ dim_kpi = pd.DataFrame(kpi_data, columns=[
     "alert_threshold","direction"
 ])
 
-dim_kpi.to_csv(f"{OUTPUT_DIR}/dim_kpi.csv", index=False)
+dim_kpi.to_csv(OUTPUT_DIR / "dim_kpi.csv", index=False)
 print(f"   ✓ {len(dim_kpi):,} lignes — dim_kpi.csv")
 
 
@@ -345,7 +351,7 @@ fact_operations = pd.DataFrame(rows)
 
 # ── Tri et export ─────────────────────────────
 fact_operations.sort_values("operation_id", inplace=True)
-fact_operations.to_csv(f"{OUTPUT_DIR}/fact_operations.csv", index=False)
+fact_operations.to_csv(OUTPUT_DIR / "fact_operations.csv", index=False)
 print(f"   ✓ {len(fact_operations):,} lignes — fact_operations.csv")
 
 
@@ -355,7 +361,7 @@ print(f"   ✓ {len(fact_operations):,} lignes — fact_operations.csv")
 print("\n" + "=" * 55)
 print("  GÉNÉRATION TERMINÉE")
 print("=" * 55)
-print(f"\n  Dossier de sortie : ./{OUTPUT_DIR}/\n")
+print(f"\n  Dossier de sortie : {OUTPUT_DIR}\n")
 
 files = [
     ("dim_date.csv",         len(dim_date),         "Table de temps complète 2021-2024"),
@@ -367,7 +373,7 @@ files = [
 
 total_mb = 0
 for fname, nrows, desc in files:
-    path = f"{OUTPUT_DIR}/{fname}"
+    path = OUTPUT_DIR / fname
     size_kb = os.path.getsize(path) / 1024
     total_mb += size_kb / 1024
     print(f"  {fname:<28} {nrows:>7,} lignes   {size_kb:>7.1f} KB   {desc}")
